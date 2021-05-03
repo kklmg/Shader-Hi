@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f0bcd417-5ad3-4895-8984-84fb0601336f" name="Default Changelist" comment="" />
+    <list default="true" id="f0bcd417-5ad3-4895-8984-84fb0601336f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LearnShader/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LearnShader/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +19,11 @@
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/2-3.shader" />
       <option value="$PROJECT_DIR$/Assets/Scripts/HelloShader.shader" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Cull Front.shader" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Glass.shader" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AlphaTest.shader" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/light_AlphaTest.shader" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlantShader.shader" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rwHxHUsk1oNoiA0T7KRdepa92w" />
@@ -62,7 +69,8 @@
       <option name="presentableId" value="Default" />
       <updated>1619880502894</updated>
       <workItem from="1619880525442" duration="196000" />
-      <workItem from="1619881444792" duration="1267000" />
+      <workItem from="1619881444792" duration="1576000" />
+      <workItem from="1620048364203" duration="4651000" />
     </task>
     <servers />
   </component>
@@ -81,6 +89,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
