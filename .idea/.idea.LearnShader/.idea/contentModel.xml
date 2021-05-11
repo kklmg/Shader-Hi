@@ -3,8 +3,29 @@
   <component name="ContentModelStore">
     <e p="C:\Users\15228\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
     <e p="C:\Users\15228\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_LearnShader.1594314780.00" t="ExcludeRecursive" />
-    <e p="D:\Programming\Unity Projects\LearnShader" t="IncludeFlat">
+    <e p="D:\Programming\Unity Projects\LearnShader" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="Graph.cs" t="Include" />
+          <e p="Point Surface.shader" t="Include" />
+          <e p="shader" t="Include">
+            <e p="2-3.shader" t="Include" />
+            <e p="AlphaTest.shader" t="Include" />
+            <e p="BlendlightTexture.shader" t="Include" />
+            <e p="Cull Front.shader" t="Include" />
+            <e p="Glass.shader" t="Include" />
+            <e p="HelloShader.shader" t="Include" />
+            <e p="HiShader.shader" t="Include" />
+            <e p="light_AlphaTest.shader" t="Include" />
+            <e p="PlantShader.shader" t="Include" />
+          </e>
+        </e>
+      </e>
       <e p="LearnShader.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
   </component>
 </project>

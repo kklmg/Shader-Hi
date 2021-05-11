@@ -2,7 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0bcd417-5ad3-4895-8984-84fb0601336f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LearnShader/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LearnShader/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LearnShader/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LearnShader/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LearnShader/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LearnShader/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/2-3.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/2-3.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AlphaTest.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AlphaTest.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BaseMaterial.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BaseMaterial.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BlendlightTexture.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BlendlightTexture.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cull Front.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cull Front.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cull.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cull.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Glass.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Glass.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Glass.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Glass.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HelloShader.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HelloShader.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HiShader.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HiShader.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlantShader.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlantShader.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/alphaTest.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/alphaTest.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/light_AlphaTest.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/light_AlphaTest.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/plant.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/plant.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,18 +45,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/2-3.shader" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/2-3.shader" />
       <option value="$PROJECT_DIR$/Assets/Scripts/HelloShader.shader" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Cull Front.shader" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Glass.shader" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AlphaTest.shader" />
       <option value="$PROJECT_DIR$/Assets/Scripts/light_AlphaTest.shader" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlantShader.shader" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Glass.shader" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Point Surface.shader" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Graph.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rwHxHUsk1oNoiA0T7KRdepa92w" />
@@ -70,7 +102,9 @@
       <updated>1619880502894</updated>
       <workItem from="1619880525442" duration="196000" />
       <workItem from="1619881444792" duration="1576000" />
-      <workItem from="1620048364203" duration="4651000" />
+      <workItem from="1620048364203" duration="5453000" />
+      <workItem from="1620581104926" duration="1180000" />
+      <workItem from="1620744251099" duration="5271000" />
     </task>
     <servers />
   </component>
