@@ -18,6 +18,10 @@
             <e p="HelloShader.shader" t="Include" />
             <e p="HiShader.shader" t="Include" />
             <e p="light_AlphaTest.shader" t="Include" />
+            <e p="New Folder" t="Include">
+              <e p="BasicShader.shader" t="Include" />
+              <e p="BasicSurfaceShader.shader" t="Include" />
+            </e>
             <e p="PlantShader.shader" t="Include" />
           </e>
         </e>
