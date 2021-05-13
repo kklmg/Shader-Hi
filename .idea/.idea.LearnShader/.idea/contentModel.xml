@@ -21,6 +21,7 @@
             <e p="New Folder" t="Include">
               <e p="BasicShader.shader" t="Include" />
               <e p="BasicSurfaceShader.shader" t="Include" />
+              <e p="Transparent.shader" t="Include" />
             </e>
             <e p="PlantShader.shader" t="Include" />
           </e>

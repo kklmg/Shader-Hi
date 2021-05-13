@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f0bcd417-5ad3-4895-8984-84fb0601336f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LearnShader/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LearnShader/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="f0bcd417-5ad3-4895-8984-84fb0601336f" name="Default Changelist" comment="Basic Shader">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LearnShader/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LearnShader/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,8 +74,16 @@
       <workItem from="1620048364203" duration="5453000" />
       <workItem from="1620581104926" duration="1180000" />
       <workItem from="1620744251099" duration="5271000" />
-      <workItem from="1620834986521" duration="756000" />
+      <workItem from="1620834986521" duration="1460000" />
     </task>
+    <task id="LOCAL-00001" summary="Basic Shader">
+      <created>1620836118532</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620836118532</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,5 +105,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Basic Shader" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic Shader" />
   </component>
 </project>
