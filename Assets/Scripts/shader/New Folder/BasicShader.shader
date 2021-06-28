@@ -52,8 +52,9 @@
       }
 
       //the fragment shader function
-      fixed4 frag(v2f i) : SV_TARGET{
-          //read the texture color at the uv coordinate
+      fixed4 frag(v2f i) : SV_TARGET
+	  {
+        //read the texture color at the uv coordinate
         fixed4 col = tex2D(_MainTex, i.uv);
         //multiply the texture color and tint color
         col *= _Color;
