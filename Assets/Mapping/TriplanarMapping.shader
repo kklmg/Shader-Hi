@@ -4,8 +4,10 @@
 	Properties
 	{
 		_Color("Tint", Color) = (0, 0, 0, 1)
-		_MainTex("Texture", 2D) = "white" {}
+		_TopTex("Texture", 2D) = "white" {}
+		_SideTex("Texture", 2D) = "white" {}
 		_Sharpness("Blend Sharpness", Range(1, 64)) = 1
+		_Angle("Angle",Range(0,180)) = 30
 	}
 
 	SubShader
@@ -23,10 +25,14 @@
 			#pragma fragment frag
 
 			//texture and transforms of the texture
-			sampler2D _MainTex;
-			float4 _MainTex_ST;
+			sampler2D _TopTex;
+			sampler2D _SideTex;
+			float4 _TopTex_ST;
+			float4 _SideTex_ST;
 
 			float _Sharpness;
+			float _Angle;
+
 
 			fixed4 _Color;
 
@@ -43,15 +49,10 @@
 				float3 normal : NORMAL;
 			};
 
-			inline float magnitude(float3 f3)
-			{
-				return sqrt(f3.x*f3.x + f3.y*f3.y + f3.z*f3.z);
-			}
 
-
-			inline float angleBetween(float3 colour, float3 original)
+			inline float angleBetween(float3 from, float3 to)
 			{
-				return acos(dot(colour, original) / magnitude(colour)*magnitude(original));
+				return acos(clamp(dot(normalize(from), normalize(to)), -1.0, 1.0)) * 57.29578f;
 			}
 
 			
@@ -61,11 +62,11 @@
 				v2f o;
 				//calculate the position in clip space to render the object
 				o.position = UnityObjectToClipPos(v.vertex);
-				//calculate world position of vertex
+				//calculate world position of vertex   
 				float4 worldPos = mul(unity_ObjectToWorld, v.vertex);
 				//change UVs based on tiling and offset of texture
 				o.worldPos = worldPos.xyz;
-		
+
 				float3 worldNormal = mul(v.normal, (float3x3)unity_ObjectToWorld);
 				o.normal = normalize(worldNormal);
 
@@ -74,26 +75,46 @@
 
 			fixed4 frag(v2f i) : SV_TARGET
 			{
-				 float3 up = float3(0,1,0);
+				 float2 uv_front;
+				 float2 uv_side;
+				 float2 uv_top;
 
-				 float angle = angleBetween(i.normal, up);
 
-				 if(angle>30) return fixed4(i.normal.xyz, 1);
+				 fixed4 col_front;
+				 fixed4 col_side;
+				 fixed4 col_top;
 
-				 float2 uv_front = TRANSFORM_TEX(i.worldPos.xy, _MainTex);
-				 float2 uv_side = TRANSFORM_TEX(i.worldPos.zy, _MainTex);
-				 float2 uv_top = TRANSFORM_TEX(i.worldPos.xz, _MainTex);
 
-				 fixed4 col_front = tex2D(_MainTex, uv_front);
-				 fixed4 col_side = tex2D(_MainTex, uv_side);
-				 fixed4 col_top = tex2D(_MainTex, uv_top);
+				 if (angleBetween(i.normal, float3(0, 1, 0))<_Angle) 
+				 {
+					 uv_front = TRANSFORM_TEX(i.worldPos.xy, _TopTex);
+					 uv_side = TRANSFORM_TEX(i.worldPos.zy, _TopTex);
+					 uv_top = TRANSFORM_TEX(i.worldPos.xz, _TopTex);
+
+
+					 col_front = tex2D(_TopTex, uv_front);
+					 col_side = tex2D(_TopTex, uv_side);
+					 col_top = tex2D(_TopTex, uv_top);
+				 }
+				 else
+				 {
+					 uv_front = TRANSFORM_TEX(i.worldPos.xy, _SideTex);
+					 uv_side = TRANSFORM_TEX(i.worldPos.zy, _SideTex);
+					 uv_top = TRANSFORM_TEX(i.worldPos.xz, _SideTex);
+
+					 col_front = tex2D(_SideTex, uv_front);
+					 col_side = tex2D(_SideTex, uv_side);
+					 col_top = tex2D(_SideTex, uv_top);
+				 }
+				 
+				
 
 				 float3 weights = i.normal;
 				 weights = abs(weights);
 
 				 weights = weights / (weights.x + weights.y + weights.z);
 
-				 //weights = pow(weights, _Sharpness);
+				 weights = pow(weights, _Sharpness);
 
 				 col_front *= weights.z;
 				 col_side *= weights.x;
