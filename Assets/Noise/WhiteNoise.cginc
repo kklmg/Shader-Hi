@@ -3,6 +3,23 @@
 
     //our library functions
 
+    float easeIn(float interpolator)
+    {
+        return interpolator * interpolator;
+    }
+
+    float easeOut(float interpolator)
+    {
+        return 1 - easeIn(1 - interpolator);
+    }
+
+    float easeInOut(float interpolator)
+    {
+        float easeInValue = easeIn(interpolator);
+        float easeOutValue = easeOut(interpolator);
+        return lerp(easeInValue, easeOutValue, interpolator);
+    }
+
     //get a scalar random value from a 3d value
     float rand3dTo1d(float3 value, float3 dotDir = float3(12.9898, 78.233, 37.719))
     {
@@ -35,8 +52,8 @@
     {
         return float2
         (
-        rand3dTo1d(value, float3(12.989, 78.233, 37.719)),
-        rand3dTo1d(value, float3(39.346, 11.135, 83.155))
+            rand3dTo1d(value, float3(12.989, 78.233, 37.719)),
+            rand3dTo1d(value, float3(39.346, 11.135, 83.155))
         );
     }
 
@@ -44,8 +61,8 @@
     {
         return float2
         (
-        rand2dTo1d(value, float2(12.989, 78.233)),
-        rand2dTo1d(value, float2(39.346, 11.135))
+            rand2dTo1d(value, float2(12.989, 78.233)),
+            rand2dTo1d(value, float2(39.346, 11.135))
         );
     }
 
@@ -53,8 +70,8 @@
     {
         return float2
         (
-        rand2dTo1d(value, 3.9812),
-        rand2dTo1d(value, 7.1536)
+            rand2dTo1d(value, 3.9812),
+            rand2dTo1d(value, 7.1536)
         );
     }
 
@@ -64,9 +81,9 @@
     {
         return float3
         (
-        rand3dTo1d(value, float3(12.989, 78.233, 37.719)),
-        rand3dTo1d(value, float3(39.346, 11.135, 83.155)),
-        rand3dTo1d(value, float3(73.156, 52.235, 09.151))
+            rand3dTo1d(value, float3(12.989, 78.233, 37.719)),
+            rand3dTo1d(value, float3(39.346, 11.135, 83.155)),
+            rand3dTo1d(value, float3(73.156, 52.235, 09.151))
         );
     }
 
@@ -74,9 +91,9 @@
     {
         return float3
         (
-        rand2dTo1d(value, float2(12.989, 78.233)),
-        rand2dTo1d(value, float2(39.346, 11.135)),
-        rand2dTo1d(value, float2(73.156, 52.235))
+            rand2dTo1d(value, float2(12.989, 78.233)),
+            rand2dTo1d(value, float2(39.346, 11.135)),
+            rand2dTo1d(value, float2(73.156, 52.235))
         );
     }
 
@@ -84,9 +101,9 @@
     {
         return float3
         (
-        rand1dTo1d(value, 3.9812),
-        rand1dTo1d(value, 7.1536),
-        rand1dTo1d(value, 5.7241)
+            rand1dTo1d(value, 3.9812),
+            rand1dTo1d(value, 7.1536),
+            rand1dTo1d(value, 5.7241)
         );
     }
 #endif
