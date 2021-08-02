@@ -10,7 +10,7 @@
         LOD 200
 
         CGPROGRAM
-        // Physically based Standard lighting model, and enable shadows on all light types
+        // Physically based Standard lighting model, and enable shadows 7on all light types
         #pragma surface surf Standard fullforwardshadows
 
         // Use shader model 3.0 target, to get nicer looking lighting
@@ -66,6 +66,35 @@
             return noise;
         }
 
+        float3 ValueNoise3d(float3 value)
+        {
+            float interpolatorX = easeInOut(frac(value.x));
+            float interpolatorY = easeInOut(frac(value.y));
+            float interpolatorZ = easeInOut(frac(value.z));
+
+            float3 cellNoiseZ[2];
+            [unroll]
+            for(int z=0;z<=1;z++)
+            {
+                float3 cellNoiseY[2];
+                [unroll]
+                for(int y=0;y<=1;y++)
+                {
+                    float3 cellNoiseX[2];
+                    [unroll]
+                    for(int x=0;x<=1;x++)
+                    {
+                        float3 cell = floor(value) + float3(x, y, z);
+                        cellNoiseX[x] = rand3dTo3d(cell);
+                    }
+                    cellNoiseY[y] = lerp(cellNoiseX[0], cellNoiseX[1], interpolatorX);
+                }
+                cellNoiseZ[z] = lerp(cellNoiseY[0], cellNoiseY[1], interpolatorY);
+            }
+            float3 noise = lerp(cellNoiseZ[0], cellNoiseZ[1], interpolatorZ);
+            return noise;
+        }
+
 
         //one dimension
         // void surf (Input i, inout SurfaceOutputStandard o)
@@ -84,10 +113,19 @@
         // }
 
         //2d 
+        // void surf (Input i, inout SurfaceOutputStandard o) 
+        // {
+        //     float2 value = i.worldPos.xy / _CellSize;
+        //     float noise = ValueNoise2d(value);
+
+        //     o.Albedo = noise;
+        // }
+
+        //3d
         void surf (Input i, inout SurfaceOutputStandard o) 
         {
-            float2 value = i.worldPos.xy / _CellSize;
-            float noise = ValueNoise2d(value);
+            float3 value = i.worldPos.xyz / _CellSize;
+            float3 noise = ValueNoise3d(value);
 
             o.Albedo = noise;
         }
