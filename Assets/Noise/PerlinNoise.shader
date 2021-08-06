@@ -1,4 +1,4 @@
-﻿Shader "Custom/PerlinNoise"
+Shader "Custom/PerlinNoise"
 {
     Properties
     {
@@ -138,7 +138,7 @@
 			float heightLine = smoothstep(1-pixelNoiseChange, 1, noise);
 			heightLine += smoothstep(pixelNoiseChange, 0, noise);
 
-			o.Albedo = heightLine;
+			o.Albedo = pixelNoiseChange;
         }
         ENDCG
     }
