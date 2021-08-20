@@ -65,7 +65,7 @@
             float4 color;
             color.rgb = lerp(shadowColor, s.Albedo, lightIntensity) * _LightColor0.rgb;
             color.a = s.Alpha;
-            return lightIntensity;
+            return color;
         }
 
         void surf (Input i, inout SurfaceOutput o)
