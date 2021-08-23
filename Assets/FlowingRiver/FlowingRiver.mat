@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SteppedToon
-  m_Shader: {fileID: 4800000, guid: 5962e88b27f2381469b8e5e5ddef03af, type: 3}
+  m_Name: FlowingRiver
+  m_Shader: {fileID: 4800000, guid: fe6ba922978c40b468c210d594fc52f0, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -39,6 +39,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _FoamNoise:
+        m_Texture: {fileID: 2800000, guid: 3939148c2531b1c468ec761339cab59a, type: 3}
+        m_Scale: {x: 0.5, y: 0.5}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -55,11 +59,20 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Specs1:
+        m_Texture: {fileID: 2800000, guid: 3d31f24f38118d346b1e7c90ff6d3a6a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Specs2:
+        m_Texture: {fileID: 2800000, guid: e3c64c64e2f072949b8fed4ac5637c1b, type: 3}
+        m_Scale: {x: 1, y: 0.05}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _FoamAmount: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -68,18 +81,17 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
-    - _SpecularFalloff: 1
     - _SpecularHighlights: 1
-    - _SpecularSize: 0.201
     - _SrcBlend: 1
-    - _StepAmount: 5
-    - _StepWidth: 0.25
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Emission: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 0.30566037, g: 0.45035926, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadowTint: {r: 0, g: 0, b: 0, a: 1}
-    - _Specular: {r: 1, g: 1, b: 1, a: 1}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FoamDirection: {r: 0, g: -0.2, b: 0, a: 0}
+    - _SpecColor1: {r: 0.6156863, g: 0.6156863, b: 0.69411767, a: 1}
+    - _SpecColor2: {r: 0.8745098, g: 0.8745098, b: 0.8745098, a: 1}
+    - _SpecDirection1: {r: 0, g: -0.1, b: 0, a: 0}
+    - _SpecDirection2: {r: 0, g: -0.03, b: 0, a: 0}
   m_BuildTextureStacks: []
