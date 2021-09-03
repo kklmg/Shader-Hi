@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //behaviour which should lie on the same gameobject as the main camera
-public class DepthPostprocessing : MonoBehaviour 
+public class ScanPostProcessing : MonoBehaviour 
 {
     //material that's applied when doing postprocessing
     [SerializeField]
