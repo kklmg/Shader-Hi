@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
-public class PostProcessAndPassVariable  : MonoBehaviour
+public class PostProcessAndPassVariable : MonoBehaviour
 {
     // Start is called before the first frame update
     private Camera _camera;
+    private Matrix4x4 _lastVP;
+
+    private Matrix4x4 CurrentVPMatrix
+    {
+        get { return Camera.main.projectionMatrix * Camera.main.worldToCameraMatrix; }
+    }
 
     [SerializeField]
     private Material postprocessMaterial;
@@ -18,6 +24,7 @@ public class PostProcessAndPassVariable  : MonoBehaviour
     void Start()
     {
         _camera.depthTextureMode = _camera.depthTextureMode | DepthTextureMode.Depth;
+        _lastVP = CurrentVPMatrix;
     }
 
     // Update is called once per frame
@@ -30,6 +37,8 @@ public class PostProcessAndPassVariable  : MonoBehaviour
         if (postprocessMaterial)
         {
             PassFrustumDirection(postprocessMaterial);
+            PassVPMatrix(postprocessMaterial);
+
             //draws the pixels from the source texture to the destination texture
             Graphics.Blit(src, dest, postprocessMaterial);
         }
@@ -37,6 +46,8 @@ public class PostProcessAndPassVariable  : MonoBehaviour
         {
             Graphics.Blit(src, dest);
         }
+
+
     }
 
     private void PassFrustumDirection(Material material)
@@ -66,7 +77,7 @@ public class PostProcessAndPassVariable  : MonoBehaviour
         toBottomLeft /= cam.nearClipPlane;
         toTopRight /= cam.nearClipPlane;
         toBottomRight /= cam.nearClipPlane;
-        
+
 
         Matrix4x4 frustumDir = Matrix4x4.identity;
         frustumDir.SetRow(0, toBottomLeft);
@@ -74,5 +85,17 @@ public class PostProcessAndPassVariable  : MonoBehaviour
         frustumDir.SetRow(2, toTopLeft);
         frustumDir.SetRow(3, toTopRight);
         material.SetMatrix("_FrustumDir", frustumDir);
+    }
+
+    private void PassVPMatrix(Material material)
+    {
+        if (material == null) return;
+
+        Matrix4x4 currentVP = CurrentVPMatrix;
+        Matrix4x4 currentInverseVP = CurrentVPMatrix.inverse;
+        material.SetMatrix("_CurrentInverseVP", currentInverseVP);
+        material.SetMatrix("_LastVP", _lastVP);
+        
+        _lastVP = currentVP;
     }
 }
