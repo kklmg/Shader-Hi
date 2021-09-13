@@ -28,7 +28,14 @@ public class CameraPostProcessing : MonoBehaviour
     }
     private void OnRenderImage(RenderTexture src, RenderTexture dest)
     {
-        //draws the pixels from the source texture to the destination texture
-        Graphics.Blit(src, dest, postprocessMaterial);
+        if (postprocessMaterial)
+        {
+            //draws the pixels from the source texture to the destination texture
+            Graphics.Blit(src, dest, postprocessMaterial);
+        }
+        else
+        {
+            Graphics.Blit(src, dest);
+        }
     }
 }
