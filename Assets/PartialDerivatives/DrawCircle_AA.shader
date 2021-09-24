@@ -1,12 +1,16 @@
-﻿Shader "Unlit/AA_Step"
+﻿Shader "Unlit/DrawCircle_AA"
 {
     Properties
     {
-
+        _MainTex ("Texture", 2D) = "white" {}
+        [ShowAsVector2] _Center("Circle Center",vector)  = (0.5,0.5,0,0)
+        _Radius ("Radius",Range(0,0.5)) = 0.5
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Trqnsparent" }
+
+        //Blend SrcAlpha OneMinusSrcAlpha
 
         Pass
         {
@@ -31,14 +35,17 @@
                 float4 vertex : SV_POSITION;
             };
 
-            //sampler2D _MainTex;
-            //float4 _MainTex_ST;
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
+            float2 _Center;
+            float _Radius;
 
             v2f vert (appdata v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = v.uv;
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
 
@@ -62,11 +69,19 @@
 
             fixed4 frag (v2f i) : SV_Target
             {
-                float stepped = AAStep(0.5, i.uv.x); 
+                float x = abs(i.uv.x - _Center.x);
+                float y = abs(i.uv.y - _Center.y); 
+                float distance = sqrt(x*x + y*y);
+                //float distance = x+y;
+
+                float stepped = 0;
+                //stepped = 1 - AAStep(_Radius,distance); 
+
+                float halfChange = fwidth(i.uv) / 2;
+                stepped = 1 - smoothstep(_Radius - halfChange,_Radius + halfChange,distance); 
+               
                 
-                //convert to greyscale color for output
-                fixed4 col = float4(stepped.xxx, 1);
-                return col;
+                return stepped;
             }
             ENDCG
         }
