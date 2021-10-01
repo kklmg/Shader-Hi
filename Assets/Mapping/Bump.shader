@@ -2,8 +2,8 @@
 {
     Properties
     {
-        [NoScaleOffset]_MainTex ("Texture", 2D) = "white" {}
-        [NoScaleOffset]_DepthMap("Depth Map", 2D) = "bump" {}
+        [NoScaleOffset] _MainTex ("Texture", 2D) = "white" {}
+        [NoScaleOffset] _DepthMap("Depth Map", 2D) = "bump" {}
         _Scale("Scale", Range(1, 10)) = 1
     }
     SubShader

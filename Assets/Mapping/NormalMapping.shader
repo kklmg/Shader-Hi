@@ -45,6 +45,7 @@
 
                 //float3 binormal = cross( v.normal, v.tangent.xyz ) * v.tangent.w;
                 //float3x3 rotation = float3x3( v.tangent.xyz, binormal, v.normal );
+
                 TANGENT_SPACE_ROTATION;
 
                 o.lightDir = mul(unity_WorldToObject, _WorldSpaceLightPos0).xyz;
@@ -52,7 +53,7 @@
 
                 return o;
             }
-
+            
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 albedo = tex2D(_MainTex, i.uv);

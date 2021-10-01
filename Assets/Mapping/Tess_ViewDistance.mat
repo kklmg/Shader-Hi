@@ -31,7 +31,7 @@ Material:
     - _Displacement: 1
     - _Glossiness: 0.5
     - _Metallic: 0
-    - _Tess: 8
+    - _Tess: 32
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
