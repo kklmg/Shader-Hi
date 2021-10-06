@@ -1,4 +1,4 @@
-﻿Shader "Unlit/ParallaxMapping"
+﻿Shader "Unlit/SimpleParallax"
 {
     Properties
     {
@@ -70,7 +70,7 @@
 				float3 viewDir = normalize(i.viewDir_tangentSpace);
 
 				float2 uv = ParallaxMapping(i.uv, viewDir);
-				//if(uv.x > 1.0 || uv.y > 1.0 || uv.x < 0.0 || uv.y < 0.0) 	discard;
+				if(uv.x > 1.0 || uv.y > 1.0 || uv.x < 0.0 || uv.y < 0.0) discard;
 				
 
 				float3 normal = normalize(UnpackNormal(tex2D(_NormalMap, uv)));
