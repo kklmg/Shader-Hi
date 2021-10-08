@@ -1,4 +1,4 @@
-﻿Shader "Unlit/SteepParallax"
+﻿Shader "Unlit/ParallaxOcclusionMapping"
 {
     Properties
     {
@@ -74,7 +74,7 @@
                 float currentLayerDepth = 0.0;
                 float2 currentTexCoords = uv;
 
-				float2 deltaTexCoords = viewDir.xy / viewDir.z / numLayers * _HeightScale;
+				float2 deltaTexCoords = viewDir.xy  / numLayers * _HeightScale;
 
 				float currentDepthMapValue = tex2D(_DepthMap, currentTexCoords).w;
 
@@ -88,7 +88,16 @@
 					currentLayerDepth += perLayerDepth;
 				}
 
-				return currentTexCoords;
+				
+				float2 prevTexCoords = currentTexCoords + deltaTexCoords;
+				float prevLayerDepth = currentLayerDepth - perLayerDepth;
+
+				float afterDepth = currentDepthMapValue - currentLayerDepth;
+				float beforeDepth = tex2D(_DepthMap, prevTexCoords).r - prevLayerDepth;
+				float weight = afterDepth / (afterDepth - beforeDepth);
+				float2 finalTexCoords = prevTexCoords * weight + currentTexCoords * (1.0 - weight);
+
+				return finalTexCoords;
 			}
 
             fixed4 frag (v2f i) : SV_Target
