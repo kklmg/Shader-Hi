@@ -1,4 +1,4 @@
-﻿Shader "Unlit/DissolveFromPoint"
+﻿Shader "Unlit/DissolveToPoint"
 {
     Properties
     {
@@ -39,8 +39,7 @@
                 float2 uvMainTex : TEXCOORD0;
                 float2 uvNoiseTex : TEXCOORD1;
                 float2 uvRampTex : TEXCOORD2;
-                float3 objPos : TEXCOORD3;
-                float3 objStartPos : TEXCOORD4;
+                float3 worldPos : TEXCOORD3;
                 float4 vertex : SV_POSITION;
             };
 
@@ -66,16 +65,15 @@
                 o.uvNoiseTex = TRANSFORM_TEX(v.uv, _NoiseTex);
                 o.uvRampTex = TRANSFORM_TEX(v.uv, _RampTex);
 
-                o.objPos = v.vertex;
-                o.objStartPos = mul(unity_WorldToObject, _StartPoint);
+                o.worldPos = mul(unity_ObjectToWorld, v.vertex);
 
                 return o;
             }
 
             fixed4 frag (v2f i) : SV_Target
             {
-                float dist = length(i.objPos.xyz - i.objStartPos.xyz);
-                float normalizedDist = saturate(dist / _MaxDistance);
+                float dist = length(i.worldPos.xyz - _StartPoint.xyz);
+                float normalizedDist = 1-saturate(dist / _MaxDistance);
 
                 fixed noise = tex2D(_NoiseTex, i.uvNoiseTex).r;
                 
