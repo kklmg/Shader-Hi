@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DissolveDirection
-  m_Shader: {fileID: 4800000, guid: 35db828f9ef5f694c8a1639789ca89a6, type: 3}
+  m_Name: DissolveCameraOcculsion
+  m_Shader: {fileID: 4800000, guid: 2a3e69d7940dc6a4ab31db5b36da15d1, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -59,17 +59,15 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _RampTex:
-        m_Texture: {fileID: 2800000, guid: 08b2377649c5d764f942ec85f58e4c68, type: 3}
+    - _ScreenSpaceMask:
+        m_Texture: {fileID: 2800000, guid: 02f9e7e9061816a48b4d8206052eb0a6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DistanceEffect: 1
     - _DstBlend: 0
-    - _EdgeLength: 0.2
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -77,19 +75,14 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _PlaneOffset: 0.07
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Threshold: 0
     - _UVSec: 0
+    - _WorkDistance: 6.38
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DissolveDirection: {r: -1, g: -1, b: -1, a: 0}
-    - _EdgeColor: {r: 1, g: 0.13462639, b: 0, a: 1}
-    - _EdgeFirstColor: {r: 1, g: 0, b: 0, a: 1}
-    - _EdgeSecondColor: {r: 1, g: 1, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _StartPoint: {r: 1, g: 1, b: 1, a: 0}
+    - _PlayerPos: {r: -1.62, g: 0.38, b: -1.3539952, a: 0}
   m_BuildTextureStacks: []
